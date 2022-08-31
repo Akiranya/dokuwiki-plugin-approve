@@ -337,8 +337,14 @@ class action_plugin_approve_approve extends DokuWiki_Action_Plugin {
             }
 		}
 
-		if ($approver && $this->getConf('banner_long')) {
+        if ($approver && $this->getConf('banner_long')) {
             ptln(' | ' . $this->getLang('approver') . ': ' . userlink($approver, true));
+        }
+        
+        if (!$approve['approved']) {
+            ptln('<div>');
+            ptln($this->getLang('draft_msg'));
+            ptln('</div>');
         }
 
 		ptln('</div>');
