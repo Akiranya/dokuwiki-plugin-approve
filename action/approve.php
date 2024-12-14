@@ -265,6 +265,12 @@ class action_plugin_approve_approve extends ActionPlugin {
             }
         }
 
+        if (!$approve['approved']) {
+            ptln('<div>');
+            ptln($this->getLang('draft_msg'));
+            ptln('</div>');
+        }
+
         echo '</div>';
     }
 
